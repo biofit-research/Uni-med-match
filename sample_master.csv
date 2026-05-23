@@ -1,0 +1,109 @@
+# 데모용 모의 데이터 - 실제 임상 사용 금지 (함량/제조사/처방구분은 예시이며 부정확할 수 있음)
+약품명,성분명,제조사,처방구분
+노바스크정 5mg,amlodipine,한국화이자,입원/외래
+노바스크정 10mg,amlodipine,한국화이자,외래
+자나팜정 0.25mg,alprazolam,환인제약,외래
+자나팜정 0.5mg,alprazolam,환인제약,외래
+리피토정 10mg,atorvastatin,한국화이자,입원/외래
+리피토정 20mg,atorvastatin,한국화이자,외래
+리피토정 40mg,atorvastatin,한국화이자,외래
+트라젠타정 5mg,linagliptin,베링거인겔하임,외래
+트라젠타듀오정 2.5/500mg,linagliptin/metformin,베링거인겔하임,외래
+씬지로이드정 0.1mg,levothyroxine,부광약품,입원/외래
+씬지로이드정 0.05mg,levothyroxine,부광약품,외래
+센리카캡슐 75mg,pregabalin,환인제약,외래
+센리카캡슐 150mg,pregabalin,환인제약,외래
+크레스토정 10mg,rosuvastatin,한국아스트라제네카,입원/외래
+크레스토정 20mg,rosuvastatin,한국아스트라제네카,외래
+플라빅스정 75mg,clopidogrel,사노피아벤티스,입원/외래
+아스피린프로텍트정 100mg,aspirin,바이엘코리아,입원/외래
+하루날디정 0.2mg,tamsulosin,한국아스텔라스,외래
+글리아타민연질캡슐,choline alfoscerate,대웅바이오,입원/외래
+실로스탄정 100mg,cilostazol,한국유나이티드제약,외래
+콜린알포세레이트정 400mg,choline alfoscerate,종근당,입원/외래
+란스톤엘에프디티정 30mg,lansoprazole,제일약품,입원/외래
+넥시움정 40mg,esomeprazole,한국아스트라제네카,입원/외래
+넥시움정 20mg,esomeprazole,한국아스트라제네카,외래
+파리에트정 10mg,rabeprazole,한국에자이,외래
+무코스타정 100mg,rebamipide,오츠카제약,입원/외래
+가스모틴정 5mg,mosapride,대웅제약,외래
+모티리톤정,corydalis tuber/pharbitis seed,동아에스티,외래
+포사맥스플러스디정,alendronate/cholecalciferol,한국엠에스디,외래
+아모잘탄정 5/50mg,amlodipine/losartan,한미약품,입원/외래
+아모잘탄정 5/100mg,amlodipine/losartan,한미약품,외래
+엑스포지정 5/80mg,amlodipine/valsartan,한국노바티스,외래
+엑스포지정 5/160mg,amlodipine/valsartan,한국노바티스,외래
+트윈스타정 40/5mg,telmisartan/amlodipine,베링거인겔하임,입원/외래
+텔미누보정 40/5mg,telmisartan/amlodipine,종근당,외래
+텔로듀오정 80/5mg,telmisartan/amlodipine,베링거인겔하임,외래
+텔로듀오정 40/5mg,telmisartan/amlodipine,베링거인겔하임,입원/외래
+세비카정 5/20mg,amlodipine/olmesartan,대웅제약,외래
+올메텍정 20mg,olmesartan,대웅제약,외래
+디오반정 80mg,valsartan,한국노바티스,입원/외래
+디오반정 160mg,valsartan,한국노바티스,외래
+코자정 50mg,losartan,한국엠에스디,입원/외래
+아프로벨정 150mg,irbesartan,사노피아벤티스,외래
+프리토정 40mg,telmisartan,베링거인겔하임,외래
+콩코르정 5mg,bisoprolol,머크,입원/외래
+콩코르정 2.5mg,bisoprolol,머크,외래
+딜라트렌정 12.5mg,carvedilol,종근당,입원/외래
+테놀민정 50mg,atenolol,현대약품,외래
+라식스정 40mg,furosemide,한독,입원/외래
+다이크로짇정 25mg,hydrochlorothiazide,유한양행,외래
+알닥톤정 25mg,spironolactone,한국화이자,입원/외래
+딜테란서방캡슐 90mg,diltiazem,근화제약,외래
+헤르벤정 30mg,diltiazem,종근당,외래
+아달라트오로스정 30mg,nifedipine,바이엘코리아,입원/외래
+메트포르민정 500mg,metformin,대웅제약,입원/외래
+다이아벡스정 500mg,metformin,일동제약,입원/외래
+아마릴정 2mg,glimepiride,한독,외래
+자누비아정 100mg,sitagliptin,한국엠에스디,외래
+자누메트정 50/500mg,sitagliptin/metformin,한국엠에스디,외래
+가브스정 50mg,vildagliptin,한국노바티스,외래
+가브스메트정 50/500mg,vildagliptin/metformin,한국노바티스,외래
+포시가정 10mg,dapagliflozin,한국아스트라제네카,외래
+자디앙정 10mg,empagliflozin,베링거인겔하임,외래
+글루코파지엑스알서방정 500mg,metformin,머크,외래
+란투스주 100IU/ml,insulin glargine,사노피아벤티스,입원/외래
+울트라파스틱주,insulin aspart,노보노디스크,입원
+판토록정 40mg,pantoprazole,한국다케다,입원/외래
+스토가정 10mg,lafutidine,제일약품,외래
+알마겔정,almagate,유한양행,외래
+베아제정,digestive enzyme,대웅제약,외래
+훼스탈플러스정,digestive enzyme,한독,외래
+듀파락이지시럽,lactulose,제일약품,입원/외래
+마그밀정 500mg,magnesium hydroxide,삼남제약,입원/외래
+센나엑스정,sennoside,종근당,외래
+비오플250산,bacillus subtilis,일동제약,입원/외래
+메디락디에스장용캡슐,lactic acid bacteria,한미약품,입원/외래
+타이레놀정 500mg,acetaminophen,한국얀센,입원/외래
+타이레놀이알서방정 650mg,acetaminophen,한국얀센,입원/외래
+울트라셋이알서방정,tramadol/acetaminophen,한국얀센,입원/외래
+트라마돌정 50mg,tramadol,근화제약,입원/외래
+쎄레브렉스캡슐 200mg,celecoxib,한국화이자,외래
+낙센정 250mg,naproxen,종근당,외래
+이지엔6프로연질캡슐,dexibuprofen,대웅제약,외래
+탁센연질캡슐,naproxen,녹십자,외래
+록소닌정 60mg,loxoprofen,제일약품,외래
+모빅정 7.5mg,meloxicam,베링거인겔하임,외래
+조인스정 200mg,clematis/trichosanthes/prunella,에스케이케미칼,외래
+신바로정,clematis/harpagophytum,녹십자,외래
+스티렌정 60mg,artemisia,동아에스티,외래
+가나톤정 50mg,itopride,한국애보트,외래
+레보투스정,levodropropizine,현대약품,외래
+코대원정,dihydrocodeine/guaifenesin,대원제약,외래
+뮤코펙트정 30mg,ambroxol,한국베링거인겔하임,입원/외래
+리나치올캡슐 375mg,carbocisteine,현대약품,외래
+지르텍정 10mg,cetirizine,한국유씨비,외래
+알레그라정 120mg,fexofenadine,한독,외래
+씨잘정 5mg,levocetirizine,한국유씨비,외래
+클라리틴정 10mg,loratadine,바이엘코리아,외래
+싱귤레어정 10mg,montelukast,한국엠에스디,외래
+오구멘틴정 375mg,amoxicillin/clavulanate,일성신약,입원/외래
+오구멘틴듀오정 625mg,amoxicillin/clavulanate,일성신약,입원/외래
+지스로맥스정 250mg,azithromycin,한국화이자,외래
+크라비트정 500mg,levofloxacin,제일약품,입원/외래
+시프로바이정 500mg,ciprofloxacin,바이엘코리아,입원/외래
+세파클러캡슐 250mg,cefaclor,종근당,외래
+듀로제식디트랜스패치 25mcg/h,fentanyl,한국얀센,입원
+삼성가스터정 20mg,famotidine,삼성제약,입원/외래
