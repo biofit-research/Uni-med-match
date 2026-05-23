@@ -28,6 +28,36 @@
     --rose-border: #FECACA;
     --slate: #475569;
     --slate-bg: #F1F5F9;
+    --indigo: #4F46E5;
+    --indigo-bg: #EEF2FF;
+    --indigo-border: #C7D2FE;
+  }
+  [data-theme="dark"] {
+    --bg: #15140F;
+    --surface: #1F1E1A;
+    --surface-alt: #28261F;
+    --border: #38362E;
+    --border-strong: #4A4840;
+    --text: #EDEAE2;
+    --text-2: #B0ADA3;
+    --text-3: #807D74;
+    --primary: #2DD4BF;
+    --primary-hover: #5EEAD4;
+    --primary-soft: #134E4A;
+    --emerald: #34D399;
+    --emerald-bg: #064E3B;
+    --emerald-border: #065F46;
+    --amber: #FBBF24;
+    --amber-bg: #422006;
+    --amber-border: #78350F;
+    --rose: #F87171;
+    --rose-bg: #450A0A;
+    --rose-border: #7F1D1D;
+    --slate: #94A3B8;
+    --slate-bg: #1E293B;
+    --indigo: #A5B4FC;
+    --indigo-bg: #312E81;
+    --indigo-border: #4338CA;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { font-size: 15px; }
@@ -1197,6 +1227,117 @@
     white-space: nowrap;
   }
 
+  /* 결과 내보내기 버튼 */
+  .result-export-actions { display: flex; gap: 6px; margin-left: auto; }
+  .btn-sm { padding: 5px 10px; font-size: 0.8125rem; }
+
+  /* 예시 마스터 불러오기 */
+  .sample-load-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .sample-load-note {
+    font-size: 0.75rem;
+    color: var(--text-3);
+  }
+
+  /* Toast */
+  .app-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--text);
+    color: var(--surface);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    z-index: 2000;
+  }
+  .app-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  /* 접이식 카드 (즐겨찾기·이력) */
+  .collapsible-card { padding: 0; overflow: hidden; }
+  .collapsible-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 20px;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .collapsible-summary::-webkit-details-marker { display: none; }
+  .collapsible-summary::after {
+    content: "▸";
+    margin-left: auto;
+    color: var(--text-3);
+    transition: transform 0.15s;
+  }
+  details[open] .collapsible-summary::after { transform: rotate(90deg); }
+  .collapsible-card details[open] .collapsible-summary { border-bottom: 1px solid var(--border); }
+  .collapsible-title { font-size: 1rem; font-weight: 600; }
+  .collapsible-card .search-results { padding: 0 16px 16px; }
+  .step.fav { background: var(--amber); }
+  .step.hist { background: var(--slate); font-size: 0.875rem; }
+  .collapsible-summary .link-btn { order: 1; }
+
+  /* 이력 항목 */
+  .hist-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+  }
+  .hist-item:hover { background: var(--surface-alt); }
+  .hist-main { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .hist-time { font-size: 0.75rem; color: var(--text-3); }
+  .hist-preview { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hist-stats { display: flex; align-items: center; gap: 4px; flex-shrink: 0; }
+  .hist-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 22px; padding: 1px 6px; border-radius: 4px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .hist-badge.exact { background: var(--emerald-bg); color: var(--emerald); }
+  .hist-badge.sub { background: var(--amber-bg); color: var(--amber); }
+  .hist-badge.none { background: var(--rose-bg); color: var(--rose); }
+  .hist-load {
+    margin-left: 4px; padding: 3px 10px; font-size: 0.75rem;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text-2); border-radius: 5px; cursor: pointer;
+  }
+  .hist-load:hover { background: var(--indigo-bg); color: var(--indigo); border-color: var(--indigo-border); }
+
+  /* 즐겨찾기 항목 */
+  .fav-item { display: flex; align-items: center; gap: 6px; padding: 4px 0; }
+  .fav-load {
+    flex: 1; display: flex; align-items: center; gap: 8px;
+    padding: 8px 12px; border: 1px solid var(--border); background: var(--surface);
+    border-radius: 6px; cursor: pointer; text-align: left;
+  }
+  .fav-load:hover { background: var(--surface-alt); border-color: var(--border-strong); }
+  .fav-name { font-weight: 500; font-size: 0.875rem; color: var(--text); }
+  .fav-count { font-size: 0.75rem; color: var(--text-3); margin-left: auto; }
+  .fav-del {
+    width: 28px; height: 28px; flex-shrink: 0;
+    border: 1px solid var(--border); background: var(--surface);
+    color: var(--text-3); border-radius: 6px; cursor: pointer; font-size: 1rem;
+  }
+  .fav-del:hover { background: var(--rose-bg); color: var(--rose); border-color: var(--rose-border); }
+
   footer {
     margin-top: 32px;
     padding: 20px 0;
@@ -1286,6 +1427,7 @@
       <span class="meta-pill" id="outOnlyPill" hidden><span class="dot-out"></span>외래만 <strong>0</strong></span>
       <span class="meta-pill" id="stopPill" hidden><span class="dot-stop"></span>품절 <strong>0</strong></span>
       <span class="meta-pill" id="hiraPill" hidden title="건강보험심사평가원 약제급여목록표">HIRA · 심평원 등록 약품 <strong>0</strong>개 매칭<span class="date-tag" id="hiraPillDate"></span></span>
+      <button type="button" class="settings-btn" id="themeToggle" title="다크 모드 전환">🌙</button>
       <button type="button" class="settings-btn" id="settingsBtn" title="마스터 변경 / 설정">⚙</button>
     </div>
   </header>
@@ -1374,6 +1516,7 @@
       <button class="btn-primary" id="matchBtn">매칭 시작</button>
       <button class="btn-secondary" id="sampleBtn">예시 입력</button>
       <button class="btn-secondary" id="clearBtn">지우기</button>
+      <button class="btn-secondary" id="saveFavBtn" title="현재 입력을 즐겨찾기로 저장">☆ 즐겨찾기</button>
     </div>
   </section>
 
@@ -1381,9 +1524,34 @@
     <div class="section-header">
       <span class="step">2</span>
       <h2>매칭 결과</h2>
+      <div class="result-export-actions">
+        <button type="button" class="btn-secondary btn-sm" id="copyResultBtn" title="본원 약품명을 줄바꿈으로 복사">📋 복사</button>
+        <button type="button" class="btn-secondary btn-sm" id="exportCsvBtn" title="매칭 결과 전체를 CSV로 다운로드">⬇ CSV</button>
+      </div>
     </div>
     <div class="stats" id="stats"></div>
     <div id="results"></div>
+  </section>
+
+  <section class="card collapsible-card" id="favoriteCard">
+    <details>
+      <summary class="collapsible-summary">
+        <span class="step fav">☆</span>
+        <span class="collapsible-title">처방 즐겨찾기</span>
+      </summary>
+      <div class="search-results" id="favoriteList" style="max-height:240px;margin-top:10px;"></div>
+    </details>
+  </section>
+
+  <section class="card collapsible-card" id="historyCard">
+    <details>
+      <summary class="collapsible-summary">
+        <span class="step hist">🕒</span>
+        <span class="collapsible-title">매칭 이력</span>
+        <button type="button" class="link-btn" id="clearHistoryBtn" style="margin-left:auto;">전체 삭제</button>
+      </summary>
+      <div class="search-results" id="historyList" style="max-height:280px;margin-top:10px;"></div>
+    </details>
   </section>
 
   <section class="card" id="hiraSearchCard">
@@ -1413,6 +1581,10 @@
         <span class="upload-icon-sm">📤</span>
         <span class="upload-title">엑셀 파일 끌어놓기 또는 클릭</span>
         <span class="upload-hint">.xlsx, .xls, .csv</span>
+      </div>
+      <div class="sample-load-row">
+        <button type="button" class="link-btn" id="loadSampleBtn">또는 예시 마스터 불러오기 (다빈도 처방약 107종)</button>
+        <span class="sample-load-note">데모용 · 실제 임상 데이터 아님</span>
       </div>
       <div class="upload-status" id="masterUploadStatusMain" hidden></div>
     </div>
@@ -1571,6 +1743,7 @@
     <p>본 도구는 의사·약사의 최종 검토를 보조하기 위한 것이며 임상적 판단을 대체하지 않습니다.</p>
     <p>대체약 매칭은 동일 성분·함량 기준이며, 제형(정/캡슐/시럽), 서방형 여부, 부형제 등은 별도 확인이 필요합니다.</p>
     <p class="data-source" id="dataSource">본원 약품 데이터: 사용자 업로드 (저장 위치: 이 브라우저)</p>
+    <p class="data-source" id="versionInfo"></p>
     <p class="data-source">© 2024–2026. All Rights Reserved.</p>
   </footer>
 </div>
@@ -1588,8 +1761,13 @@ let MASTER = [];
 let HIRA = {};
 let HIRA_DATE = '';
 let HIRA_DATE_DISPLAY = '';
+// 버전 정보 (한 곳에서 관리)
+const APP_VERSION = 'v3.2';
+const APP_VERSION_DATE = '2026.05';
+const APP_VERSION_NOTE = '예시 마스터·복사/CSV·즐겨찾기·이력·다크모드 추가';
+
 let APP_TITLE = '바이오핏 처방약 매칭 도우미';
-let APP_SUBTITLE = 'v3.1 · HIRA 검색 추가 (2026.05)';
+let APP_SUBTITLE = `${APP_VERSION} · ${APP_VERSION_NOTE} (${APP_VERSION_DATE})`;
 
 const LS_MASTER = 'pmatcher_master_v1';
 const LS_HIRA = 'pmatcher_hira_v1';
@@ -2328,6 +2506,8 @@ function runHiraSearch(query) {
 // =====================================================
 // 이벤트 핸들러
 // =====================================================
+let LAST_RESULTS = [];  // 복사·내보내기용
+
 document.getElementById('matchBtn').addEventListener('click', () => {
   const text = document.getElementById('input').value;
   const lines = text.split('\n')
@@ -2340,7 +2520,92 @@ document.getElementById('matchBtn').addEventListener('click', () => {
   }
 
   const results = lines.map(matchOne);
+  LAST_RESULTS = results;
   renderResults(results);
+  saveHistory(text, results);
+});
+
+// ===== 매칭 결과를 텍스트 표로 변환 =====
+function resultsToRows(results) {
+  // [입력약, 본원약품명, 성분, 회사, 처방구분, 상태]
+  const rows = [];
+  for (const r of results) {
+    const inputName = r.input.name || r.input.raw || '';
+    if (r.status === 'combo') {
+      // 복합제: 각 성분 매칭을 별도 행으로
+      const matched = (r.componentMatches || []).map(cm => {
+        const first = cm.matches && cm.matches[0];
+        return first ? first.d : '(미보유)';
+      });
+      rows.push([inputName, matched.join(' + '), '복합제', '', '', '복합제 분석']);
+    } else if (r.matches && r.matches.length > 0) {
+      const m = r.matches[0];
+      const statusLabel = r.status === 'exact' ? (r.partial ? '부분일치' : '동일/대체') : '대체 가능';
+      rows.push([inputName, m.d || '', m.i || '', m.m || '', rxInfo(m.s).label, statusLabel]);
+    } else {
+      rows.push([inputName, '', '', '', '', '처방 불가']);
+    }
+  }
+  return rows;
+}
+
+// ===== 복사: 본원 약품명만 (줄바꿈) =====
+document.getElementById('copyResultBtn').addEventListener('click', async () => {
+  if (LAST_RESULTS.length === 0) return;
+  const names = [];
+  for (const r of LAST_RESULTS) {
+    if (r.status === 'combo') {
+      (r.componentMatches || []).forEach(cm => {
+        const first = cm.matches && cm.matches[0];
+        if (first) names.push(first.d);
+      });
+    } else if (r.matches && r.matches.length > 0) {
+      names.push(r.matches[0].d);
+    }
+  }
+  if (names.length === 0) {
+    showToast('복사할 본원 약품이 없습니다');
+    return;
+  }
+  const text = names.join('\n');
+  try {
+    await navigator.clipboard.writeText(text);
+    showToast(`${names.length}개 약품명 복사됨`);
+  } catch (e) {
+    // 클립보드 API 실패 시 fallback
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); showToast(`${names.length}개 약품명 복사됨`); }
+    catch (e2) { showToast('복사 실패 — 브라우저가 차단했습니다'); }
+    document.body.removeChild(ta);
+  }
+});
+
+// ===== CSV 내보내기 =====
+document.getElementById('exportCsvBtn').addEventListener('click', () => {
+  if (LAST_RESULTS.length === 0) return;
+  const header = ['입력약품', '본원약품명', '성분', '회사', '처방구분', '매칭상태'];
+  const rows = resultsToRows(LAST_RESULTS);
+  const csvEscape = (s) => {
+    const str = String(s == null ? '' : s);
+    return /[",\n]/.test(str) ? '"' + str.replace(/"/g, '""') + '"' : str;
+  };
+  const csv = [header, ...rows].map(row => row.map(csvEscape).join(',')).join('\r\n');
+  // Excel 한글 깨짐 방지: UTF-8 BOM
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const now = new Date();
+  const stamp = `${now.getFullYear()}${String(now.getMonth()+1).padStart(2,'0')}${String(now.getDate()).padStart(2,'0')}_${String(now.getHours()).padStart(2,'0')}${String(now.getMinutes()).padStart(2,'0')}`;
+  a.href = url;
+  a.download = `매칭결과_${stamp}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  showToast('CSV 다운로드 완료');
 });
 
 document.getElementById('clearBtn').addEventListener('click', () => {
@@ -2361,6 +2626,185 @@ document.getElementById('helpBtn').addEventListener('click', () => {
   help.hidden = !help.hidden;
 });
 
+// =====================================================
+// Toast 알림
+// =====================================================
+let toastTimer = null;
+function showToast(msg) {
+  let toast = document.getElementById('appToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'appToast';
+    toast.className = 'app-toast';
+    document.body.appendChild(toast);
+  }
+  toast.textContent = msg;
+  toast.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// =====================================================
+// 매칭 이력 (최근 20건)
+// =====================================================
+const LS_HISTORY = 'pmatcher_history_v1';
+const HISTORY_MAX = 20;
+
+function saveHistory(inputText, results) {
+  try {
+    const summary = { exact: 0, substitute: 0, combo: 0, none: 0 };
+    results.forEach(r => summary[r.status]++);
+    const entry = {
+      ts: Date.now(),
+      input: inputText.slice(0, 2000),  // 안전 상한
+      count: results.length,
+      summary,
+    };
+    let hist = [];
+    try { hist = JSON.parse(localStorage.getItem(LS_HISTORY) || '[]'); } catch (e) {}
+    hist.unshift(entry);
+    hist = hist.slice(0, HISTORY_MAX);
+    localStorage.setItem(LS_HISTORY, JSON.stringify(hist));
+    renderHistory();
+  } catch (e) { console.warn('이력 저장 실패', e); }
+}
+
+function renderHistory() {
+  const container = document.getElementById('historyList');
+  if (!container) return;
+  let hist = [];
+  try { hist = JSON.parse(localStorage.getItem(LS_HISTORY) || '[]'); } catch (e) {}
+  if (hist.length === 0) {
+    container.innerHTML = '<div class="empty">아직 매칭 이력이 없습니다</div>';
+    return;
+  }
+  container.innerHTML = hist.map((h, idx) => {
+    const d = new Date(h.ts);
+    const timeStr = `${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+    const firstLine = (h.input.split('\n').find(l => l.trim() && !l.trim().startsWith('#')) || '').slice(0, 30);
+    return `
+    <div class="hist-item" data-idx="${idx}">
+      <div class="hist-main">
+        <span class="hist-time">${timeStr}</span>
+        <span class="hist-preview">${escapeHtml(firstLine)}${h.count > 1 ? ` 외 ${h.count - 1}건` : ''}</span>
+      </div>
+      <div class="hist-stats">
+        <span class="hist-badge exact">${h.summary.exact}</span>
+        <span class="hist-badge sub">${h.summary.substitute + h.summary.combo}</span>
+        <span class="hist-badge none">${h.summary.none}</span>
+        <button type="button" class="hist-load" data-idx="${idx}" title="이 처방 다시 불러오기">불러오기</button>
+      </div>
+    </div>`;
+  }).join('');
+
+  container.querySelectorAll('.hist-load').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.idx);
+      let h = [];
+      try { h = JSON.parse(localStorage.getItem(LS_HISTORY) || '[]'); } catch (e) {}
+      if (h[idx]) {
+        document.getElementById('input').value = h[idx].input;
+        document.getElementById('input').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        showToast('이력을 입력란에 불러왔습니다');
+      }
+    });
+  });
+}
+
+document.getElementById('clearHistoryBtn')?.addEventListener('click', () => {
+  if (confirm('매칭 이력을 모두 삭제합니다. 계속하시겠습니까?')) {
+    localStorage.removeItem(LS_HISTORY);
+    renderHistory();
+    showToast('이력 삭제됨');
+  }
+});
+
+// =====================================================
+// 처방 즐겨찾기 (자주 쓰는 조합)
+// =====================================================
+const LS_FAVORITES = 'pmatcher_favorites_v1';
+
+function getFavorites() {
+  try { return JSON.parse(localStorage.getItem(LS_FAVORITES) || '[]'); } catch (e) { return []; }
+}
+
+function renderFavorites() {
+  const container = document.getElementById('favoriteList');
+  if (!container) return;
+  const favs = getFavorites();
+  if (favs.length === 0) {
+    container.innerHTML = '<div class="empty">저장된 즐겨찾기가 없습니다 — 처방 입력 후 ☆ 버튼으로 저장</div>';
+    return;
+  }
+  container.innerHTML = favs.map((f, idx) => `
+    <div class="fav-item">
+      <button type="button" class="fav-load" data-idx="${idx}" title="입력란에 불러오기">
+        <span class="fav-name">${escapeHtml(f.name)}</span>
+        <span class="fav-count">${f.input.split('\n').filter(l => l.trim() && !l.trim().startsWith('#')).length}개 약품</span>
+      </button>
+      <button type="button" class="fav-del" data-idx="${idx}" title="삭제">×</button>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.fav-load').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const favs2 = getFavorites();
+      const f = favs2[parseInt(btn.dataset.idx)];
+      if (f) {
+        document.getElementById('input').value = f.input;
+        document.getElementById('input').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        showToast(`"${f.name}" 불러옴`);
+      }
+    });
+  });
+  container.querySelectorAll('.fav-del').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const favs2 = getFavorites();
+      favs2.splice(parseInt(btn.dataset.idx), 1);
+      localStorage.setItem(LS_FAVORITES, JSON.stringify(favs2));
+      renderFavorites();
+      showToast('삭제됨');
+    });
+  });
+}
+
+document.getElementById('saveFavBtn')?.addEventListener('click', () => {
+  const input = document.getElementById('input').value.trim();
+  if (!input) { showToast('입력란이 비어 있습니다'); return; }
+  const name = prompt('즐겨찾기 이름을 입력하세요 (예: A병원 처방세트)');
+  if (!name) return;
+  const favs = getFavorites();
+  favs.unshift({ name: name.slice(0, 40), input: input.slice(0, 2000) });
+  localStorage.setItem(LS_FAVORITES, JSON.stringify(favs.slice(0, 30)));
+  renderFavorites();
+  showToast(`"${name}" 저장됨`);
+});
+
+// =====================================================
+// 다크 모드
+// =====================================================
+const LS_THEME = 'pmatcher_theme_v1';
+
+function applyTheme(theme) {
+  if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  else document.documentElement.removeAttribute('data-theme');
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+(function initTheme() {
+  let theme = 'light';
+  try { theme = localStorage.getItem(LS_THEME) || 'light'; } catch (e) {}
+  applyTheme(theme);
+})();
+
+document.getElementById('themeToggle')?.addEventListener('click', () => {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const next = isDark ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem(LS_THEME, next); } catch (e) {}
+});
+
 document.getElementById('phoneTipBtn').addEventListener('click', () => {
   const tip = document.getElementById('phoneTip');
   tip.hidden = !tip.hidden;
@@ -2378,6 +2822,10 @@ document.getElementById('input').addEventListener('keydown', (e) => {
     document.getElementById('matchBtn').click();
   }
 });
+
+// 초기 렌더 — 이력·즐겨찾기
+renderHistory();
+renderFavorites();
 
 // =====================================================
 // OCR (Tesseract.js)
@@ -2584,6 +3032,12 @@ function updateAppDisplay() {
     // 사용자가 부제를 비웠으면 진짜로 비움 (단, 한 번도 설정한 적 없으면 기본값 'v3' 노출)
     sub.textContent = APP_SUBTITLE;
     sub.style.display = APP_SUBTITLE ? '' : 'none';
+  }
+
+  // 푸터 버전 정보 (사용자 브랜딩과 무관하게 항상 실제 버전 표시)
+  const verEl = document.getElementById('versionInfo');
+  if (verEl) {
+    verEl.textContent = `${APP_VERSION} (${APP_VERSION_DATE}) · ${APP_VERSION_NOTE}`;
   }
 
   const hasMaster = MASTER.length > 0;
@@ -3170,6 +3624,28 @@ document.addEventListener('DOMContentLoaded', () => {
       mainZone.classList.remove('dragover');
       const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
       if (f) processMasterExcelMain(f);
+    });
+  }
+
+  // === 예시 마스터 불러오기 ===
+  const loadSampleBtn = document.getElementById('loadSampleBtn');
+  if (loadSampleBtn) {
+    loadSampleBtn.addEventListener('click', async () => {
+      try {
+        setUploadStatus('masterUploadStatusMain', '<div class="ocr-spinner"></div><span>예시 마스터 불러오는 중...</span>', 'processing');
+        const res = await fetch('./data/sample_master.csv', { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`예시 파일을 찾을 수 없습니다 (HTTP ${res.status})`);
+        const text = await res.text();
+        // 주석(#) 줄 제거 후 File 객체로 변환 → 기존 처리 로직 재사용
+        const cleaned = text.split('\n').filter(l => !l.trimStart().startsWith('#')).join('\n');
+        const blob = new Blob([cleaned], { type: 'text/csv' });
+        const file = new File([blob], 'sample_master.csv', { type: 'text/csv' });
+        await processMasterExcelMain(file);
+        showToast('예시 마스터 로드 — 컬럼 매핑을 확인하세요');
+      } catch (e) {
+        console.error(e);
+        setUploadStatus('masterUploadStatusMain', '✕ ' + (e.message || '예시 로드 실패') + ' — GitHub Pages 환경에서만 동작합니다', 'error');
+      }
     });
   }
   
