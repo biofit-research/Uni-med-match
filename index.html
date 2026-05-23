@@ -3172,7 +3172,7 @@ async function _processMasterExcelImpl(file, zoneId, statusId) {
     
     setUploadStatus(statusId, '<div class="ocr-spinner"></div><span>엑셀 읽는 중...</span>', 'processing');
     const buf = await file.arrayBuffer();
-    const wb = XLSX.read(buf, { type: 'array' });
+    const wb = XLSX.read(buf, { type: 'array', codepage: 65001 });
     const wsName = wb.SheetNames[0];
     const ws = wb.Sheets[wsName];
     const rows = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '' });
@@ -3638,7 +3638,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const text = await res.text();
         // 주석(#) 줄 제거 후 File 객체로 변환 → 기존 처리 로직 재사용
         const cleaned = text.split('\n').filter(l => !l.trimStart().startsWith('#')).join('\n');
-        const blob = new Blob([cleaned], { type: 'text/csv' });
+        // UTF-8 BOM을 앞에 붙여 SheetJS가 한글을 정확히 인식하도록 함
+        const blob = new Blob(['\uFEFF' + cleaned], { type: 'text/csv;charset=utf-8' });
         const file = new File([blob], 'sample_master.csv', { type: 'text/csv' });
         await processMasterExcelMain(file);
         showToast('예시 마스터 로드 — 컬럼 매핑을 확인하세요');
